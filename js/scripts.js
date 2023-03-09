@@ -1,6 +1,6 @@
 /*!
 * Start Bootstrap - Jaygovind Sahu v0.0.1 (https://jaygovind-sahu.github.io)
-* Copyright 2013-2022 Start Bootstrap
+* Copyright 2013-2023 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/jaygovind-sahu.github.io/blob/master/LICENSE)
 */
 //
