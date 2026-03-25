@@ -22,7 +22,7 @@ const { meta, experience, education, skills, projects, certifications } = resume
       <h1 class="font-display text-6xl font-light tracking-tight text-ink mb-4">
         {meta.name}
       </h1>
-      <p class="font-display text-xl font-light italic text-ink/60 mb-6">
+      <p class="font-display text-xl font-light text-accent/80 mb-6">
         {meta.headline}
       </p>
       <p class="font-body text-[15px] leading-relaxed text-ink mb-8 max-w-prose">
@@ -53,7 +53,7 @@ const { meta, experience, education, skills, projects, certifications } = resume
             <div class="flex items-start justify-between gap-4 mb-1">
               <div>
                 <h3 class="font-display text-xl font-medium text-ink">{exp.company}</h3>
-                <p class="font-body text-sm text-muted italic">{exp.title}</p>
+                <p class="font-display text-base text-muted">{exp.title}</p>
               </div>
               <span class="font-mono text-[11px] text-muted whitespace-nowrap pt-1">
                 {formatDate(exp.start)} – {exp.current ? "Present" : formatDate(exp.end)}
