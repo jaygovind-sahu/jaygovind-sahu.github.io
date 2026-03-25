@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     marginBottom: 14,
   },
-  name: { fontSize: 22, fontFamily: "Helvetica-Bold", marginBottom: 3 },
+  name: { fontSize: 22, fontFamily: "Helvetica-Bold", marginBottom: 7 },
   headline: { fontSize: 10, color: MUTED },
   contactBlock: { alignItems: "flex-end", gap: 3 },
   contactItem: { fontSize: 8, color: MUTED, fontFamily: "Courier" },
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   // Experience
   expHeader: { flexDirection: "row", justifyContent: "space-between", marginBottom: 2 },
   expCompany: { fontSize: 9, fontFamily: "Helvetica-Bold" },
-  expTitle: { fontSize: 9, fontFamily: "Helvetica-Oblique", color: MUTED },
+  expTitle: { fontSize: 9, fontFamily: "Helvetica", color: MUTED },
   expDates: { fontSize: 8, color: MUTED, fontFamily: "Courier" },
   bullet: { flexDirection: "row", marginBottom: 3, paddingLeft: 8 },
   bulletDot: { width: 8, color: ACCENT, fontSize: 9 },
@@ -98,6 +98,7 @@ function ResumePDFDoc({ resume }) {
             <Text style={styles.headline}>{meta.headline}</Text>
           </View>
           <View style={styles.contactBlock}>
+            <Link src={`tel:${meta.phone}`} style={styles.contactLink}>{meta.phone}</Link>
             <Link src={`mailto:${meta.email}`} style={styles.contactLink}>{meta.email}</Link>
             <Link src={meta.linkedin} style={styles.contactLink}>linkedin.com/in/jaygovind-sahu</Link>
           </View>
