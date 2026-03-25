@@ -30,7 +30,8 @@ const { meta, experience, education, skills, projects, certifications } = resume
       </p>
 
       <!-- Links row -->
-      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mb-6">
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+        <DownloadButton client:load resume={resume} />
         <a href={`mailto:${meta.email}`} class="link-underline relative font-mono text-[11px] text-muted hover:text-accent transition-colors">
           {meta.email}
         </a>
@@ -41,9 +42,6 @@ const { meta, experience, education, skills, projects, certifications } = resume
           GitHub ↗
         </a>
       </div>
-
-      <!-- PDF Download -->
-      <DownloadButton client:load resume={resume} />
     </header>
 
     <!-- ── EXPERIENCE ──────────────────────────────────────── -->
