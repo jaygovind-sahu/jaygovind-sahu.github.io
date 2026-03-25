@@ -277,7 +277,7 @@ resume (single document → src/data/resume.json)
 // tina/config.ts
 export default defineConfig({
   branch: process.env.GITHUB_BRANCH || "main",
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
+  clientId: process.env.TINA_CLIENT_ID || "",
   token: process.env.TINA_TOKEN || "",
 
   build: {
@@ -582,7 +582,7 @@ Underline grows from left to right on hover using a CSS `::after` pseudo-element
 ### Local (`.env` — gitignored)
 
 ```bash
-NEXT_PUBLIC_TINA_CLIENT_ID=your_tina_client_id
+TINA_CLIENT_ID=your_tina_client_id
 TINA_TOKEN=your_tina_token
 GITHUB_BRANCH=main
 ```
@@ -593,7 +593,7 @@ The same three variables must be added in the Cloudflare Pages project settings 
 
 | Variable | Value |
 |---|---|
-| `NEXT_PUBLIC_TINA_CLIENT_ID` | From Tina Cloud project |
+| `TINA_CLIENT_ID` | From Tina Cloud project |
 | `TINA_TOKEN` | From Tina Cloud project |
 | `GITHUB_BRANCH` | `main` |
 
@@ -602,7 +602,7 @@ The same three variables must be added in the Cloudflare Pages project settings 
 ```bash
 # Tina CMS Cloud credentials
 # Get these from https://app.tina.io after connecting your GitHub repo
-NEXT_PUBLIC_TINA_CLIENT_ID=your_tina_client_id
+TINA_CLIENT_ID=your_tina_client_id
 TINA_TOKEN=your_tina_token
 GITHUB_BRANCH=main
 ```
