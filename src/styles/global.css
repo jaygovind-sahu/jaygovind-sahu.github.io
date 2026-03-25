@@ -1,0 +1,4 @@
+/* Additional global overrides if needed beyond Base.astro */
+* {
+  box-sizing: border-box;
+}

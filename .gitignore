@@ -1,4 +1,7 @@
-node_modules
-dist
+node_modules/
+dist/
+.astro/
+.env
 .DS_Store
-.idea
+public/admin/
+tina/__generated__/
