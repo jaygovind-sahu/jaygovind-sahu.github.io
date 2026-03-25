@@ -138,7 +138,7 @@ function ResumePDFDoc({ resume }) {
         {/* Projects */}
         {projects.length > 0 && (
           <View style={styles.section}>
-            <Text style={styles.sectionLabel}>Projects</Text>
+            <Text style={styles.sectionLabel}>Side Projects</Text>
             {projects.map((proj) => (
               <View key={proj.id} style={{ marginBottom: 8 }}>
                 <View style={{ flexDirection: "row", alignItems: "center", gap: 6, marginBottom: 1 }}>

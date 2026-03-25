@@ -135,7 +135,7 @@ export default defineConfig({
           {
             type: "object",
             name: "projects",
-            label: "Projects",
+            label: "Side Projects",
             list: true,
             ui: {
               itemProps: (item) => ({ label: item.name }),
