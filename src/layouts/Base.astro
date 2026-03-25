@@ -1,4 +1,16 @@
 ---
+import "@fontsource/cormorant-garamond/300.css";
+import "@fontsource/cormorant-garamond/300-italic.css";
+import "@fontsource/cormorant-garamond/400.css";
+import "@fontsource/cormorant-garamond/400-italic.css";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/500-italic.css";
+import "@fontsource/dm-mono/300.css";
+import "@fontsource/dm-mono/400.css";
+import "@fontsource/dm-sans/300.css";
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/dm-sans/500.css";
+
 interface Props {
   title?: string;
   description?: string;
@@ -26,20 +38,12 @@ const {
 
     <title>{title}</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-
-    <style>
+<style>
       :root {
         --ink: #1a1a18;
         --paper: #f7f6f2;
-        --muted: #9a9a94;
-        --accent: #c8622a;
+        --muted: #6b6b65;
+        --accent: #a84e1e;
         --rule: #e2e0d8;
       }
 
