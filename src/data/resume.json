@@ -7,11 +7,21 @@
     "phone": "+1-609-789-7641",
     "website": "jaygovindsahu.com",
     "linkedin": "https://linkedin.com/in/jaygovind-sahu",
-    "github": "https://github.com/jaygovindsahu",
-    "summary": "Passionate and results-driven Senior Data Engineer with over 15 years of experience in developing, implementing, and optimizing data pipelines and platforms to drive business success. Adept at designing and executing robust data solutions using Python, SQL, Airflow, and AWS products that enhance efficiency, reduce costs, and enable strategic decision-making across various domains."
+    "github": "https://github.com/jaygovind-sahu",
+    "summary": "Passionate and results-driven Senior Data Engineer with over 16 years of experience in developing, implementing, and optimizing data pipelines and platforms to drive business success. Adept at designing and executing robust data solutions using Python, SQL, Airflow, and AWS products that enhance efficiency, reduce costs, and enable strategic decision-making across various domains."
   },
-
   "experience": [
+    {
+      "company": "Netflix",
+      "title": "Data Engineer",
+      "start": "2025-07",
+      "current": true,
+      "bullets": [
+        {
+          "text": "Just started!"
+        }
+      ]
+    },
     {
       "id": "exp-1",
       "company": "Amazon",
@@ -19,11 +29,17 @@
       "location": "Malvern, PA",
       "start": "2022-03",
       "end": null,
-      "current": true,
+      "current": false,
       "bullets": [
-        "Developed a robust data platform to measure and enhance the efficiency of marketing campaigns across multiple channels, including offline (billboards, newspapers, gas station TVs), social media (Facebook, Instagram), and search engines (Google, Bing). The pipeline ingested and analyzed data from various vendors to generate key metrics such as cost per click, cost per application, impressions, and GRP — leading to a 30% reduction in marketing costs in one year after launch.",
-        "Built a data pipeline using Airflow to standardize addresses for millions of records via an address standardization API, benefiting multiple pipelines across domains. Automated process replaced a manual one, reducing standardization time by ~90% and eliminating manual errors.",
-        "Partnered with a third-party data provider to integrate hundreds of millions of sensitive records into the data lake. Designed and implemented a pipeline to transform and prepare the dataset for machine learning, and developed a reusable framework for running regression and classification models — expected to reduce marketing costs by an additional 25%."
+        {
+          "text": "Developed a robust data platform to measure and enhance the efficiency of marketing campaigns across multiple channels, including offline (billboards, newspapers, gas station TVs), social media (Facebook, Instagram), and search engines (Google, Bing). The pipeline ingested and analyzed data from various vendors to generate key metrics such as cost per click, cost per application, impressions, and GRP — leading to a 30% reduction in marketing costs in one year after launch."
+        },
+        {
+          "text": "Built a data pipeline using Airflow to standardize addresses for millions of records via an address standardization API, benefiting multiple pipelines across domains. Automated process replaced a manual one, reducing standardization time by ~90% and eliminating manual errors."
+        },
+        {
+          "text": "Partnered with a third-party data provider to integrate hundreds of millions of sensitive records into the data lake. Designed and implemented a pipeline to transform and prepare the dataset for machine learning, and developed a reusable framework for running regression and classification models — expected to reduce marketing costs by an additional 25%."
+        }
       ]
     },
     {
@@ -35,7 +51,9 @@
       "end": "2022-03",
       "current": false,
       "bullets": [
-        "Implemented and maintained data pipelines using AWS EMR, Glue, and other AWS products for big data analytics, enabling successful functioning of ~15 Tableau dashboards used by financial and business analysts for strategic decision-making by leadership teams."
+        {
+          "text": "Implemented and maintained data pipelines using AWS EMR, Glue, and other AWS products for big data analytics, enabling successful functioning of ~15 Tableau dashboards used by financial and business analysts for strategic decision-making by leadership teams."
+        }
       ]
     },
     {
@@ -47,9 +65,15 @@
       "end": "2021-04",
       "current": false,
       "bullets": [
-        "Led development and enhancement of a core product requiring processing of billions of records from clients and building reports for users — using ~70 EMR clusters, ~10 Glue jobs, and AWS Lambda functions for serverless architecture.",
-        "Optimized Apache Spark and AWS EMR configurations for a data pipeline serving ~50 vendors, saving more than 55% in AWS costs in one year while lowering the failure rate by ~90%, resulting in faster and more resilient delivery of results.",
-        "Designed and implemented a data pipeline to asynchronously call an external API endpoint, transform the response, and write datasets to Amazon S3 — using AWS SNS (queuing), Lambda (API calls with multi-processing and transformation), and Step Functions (orchestration). The pipeline processed 1 billion records in ~25 minutes, enabling timely delivery of critical client reports."
+        {
+          "text": "Led development and enhancement of a core product requiring processing of billions of records from clients and building reports for users — using ~70 EMR clusters, ~10 Glue jobs, and AWS Lambda functions for serverless architecture."
+        },
+        {
+          "text": "Optimized Apache Spark and AWS EMR configurations for a data pipeline serving ~50 vendors, saving more than 55% in AWS costs in one year while lowering the failure rate by ~90%, resulting in faster and more resilient delivery of results."
+        },
+        {
+          "text": "Designed and implemented a data pipeline to asynchronously call an external API endpoint, transform the response, and write datasets to Amazon S3 — using AWS SNS (queuing), Lambda (API calls with multi-processing and transformation), and Step Functions (orchestration). The pipeline processed 1 billion records in ~25 minutes, enabling timely delivery of critical client reports."
+        }
       ]
     },
     {
@@ -61,11 +85,12 @@
       "end": "2019-12",
       "current": false,
       "bullets": [
-        "Built data solutions for 2 major clients in the banking and financial domain, contributing to more than 15 successful projects and numerous ad-hoc analyses for business users. Developed data pipelines across technologies ranging from legacy IBM Mainframes (COBOL, JCL, DB2) to modern stacks using Python, Apache Spark, and AWS products."
+        {
+          "text": "Built data solutions for 2 major clients in the banking and financial domain, contributing to more than 15 successful projects and numerous ad-hoc analyses for business users. Developed data pipelines across technologies ranging from legacy IBM Mainframes (COBOL, JCL, DB2) to modern stacks using Python, Apache Spark, and AWS products."
+        }
       ]
     }
   ],
-
   "education": [
     {
       "id": "edu-1",
@@ -78,53 +103,95 @@
       "notes": "Burla, India"
     }
   ],
-
   "skills": [
     {
       "id": "skill-1",
       "category": "Languages",
-      "items": ["Python", "SQL", "COBOL", "JCL"]
+      "items": [
+        "Python",
+        "SQL",
+        "COBOL",
+        "JCL"
+      ]
     },
     {
       "id": "skill-2",
       "category": "Data & Pipelines",
-      "items": ["Apache Airflow", "Apache Spark", "DBT", "AWS Glue", "AWS EMR", "AWS Lambda", "AWS Step Functions", "AWS SNS", "Amazon S3"]
+      "items": [
+        "Apache Airflow",
+        "Apache Spark",
+        "DBT",
+        "AWS Glue",
+        "AWS EMR",
+        "AWS Lambda",
+        "AWS Step Functions",
+        "AWS SNS",
+        "Amazon S3"
+      ]
     },
     {
       "id": "skill-3",
       "category": "Cloud & Infrastructure",
-      "items": ["Amazon Web Services (AWS)", "Terraform"]
+      "items": [
+        "Amazon Web Services (AWS)",
+        "Terraform"
+      ]
     },
     {
       "id": "skill-4",
       "category": "Analytics & Modeling",
-      "items": ["Data Engineering", "Data Modeling", "Data Warehousing", "Data Analysis", "Machine Learning (Regression, Classification)"]
+      "items": [
+        "Data Engineering",
+        "Data Modeling",
+        "Data Warehousing",
+        "Data Analysis",
+        "Machine Learning (Regression, Classification)"
+      ]
     },
     {
       "id": "skill-5",
       "category": "Tools & Platforms",
-      "items": ["Tableau", "WordPress APIs", "OpenAI API", "Anthropic API", "DB2"]
+      "items": [
+        "Tableau",
+        "WordPress APIs",
+        "OpenAI API",
+        "Anthropic API",
+        "DB2"
+      ]
     }
   ],
-
   "projects": [
     {
       "id": "proj-1",
       "name": "The Data Domain Blog",
       "description": "A personal blog that curates news and articles in Data Engineering, Data Analytics, and AI/ML from various sources and RSS feeds. The backend uses Airflow to automate content discovery, retrieval, and summarization using LLMs from OpenAI and Anthropic. WordPress APIs are used to auto-publish articles with concise summaries and links to originals.",
-      "tech": ["Apache Airflow", "Python", "OpenAI API", "Anthropic API", "WordPress APIs", "AWS"],
+      "tech": [
+        "Apache Airflow",
+        "Python",
+        "OpenAI API",
+        "Anthropic API",
+        "WordPress APIs",
+        "AWS"
+      ],
       "url": "https://datadomain.blog",
       "featured": true
+    },
+    {
+      "name": "Data Engineer's Guide",
+      "description": "Dataguide.dev is an open-source knowledge base providing high-level technical resources for the data engineering community. It features curated guides on system design, data modeling, and interview preparation. Built to eliminate paywalls, the platform offers deep dives into modern architectures like Lakehouse and CDC, supporting engineers in career advancement",
+      "tech": [
+        "React"
+      ],
+      "url": "https://dataguide.dev"
     }
   ],
-
   "certifications": [
     {
       "id": "cert-1",
       "name": "AWS Certified Data Analytics – Specialty",
       "issuer": "Amazon Web Services",
       "date": "2023-07",
-      "url": ""
+      "url": "https://www.credly.com/badges/b13983bf-1d43-49ed-8eb6-3b3caab68cc4/public_url"
     }
   ]
 }

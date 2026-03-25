@@ -75,11 +75,21 @@ export default defineConfig({
               { type: "string", name: "end", label: "End (YYYY-MM, blank = present)" },
               { type: "boolean", name: "current", label: "Current Role" },
               {
-                type: "string",
+                type: "object",
                 name: "bullets",
                 label: "Bullets",
                 list: true,
-                ui: { component: "textarea" },
+                ui: {
+                  itemProps: (item) => ({ label: item.text }),
+                },
+                fields: [
+                  {
+                    type: "string",
+                    name: "text",
+                    label: "Bullet",
+                    ui: { component: "textarea" },
+                  },
+                ],
               },
             ],
           },

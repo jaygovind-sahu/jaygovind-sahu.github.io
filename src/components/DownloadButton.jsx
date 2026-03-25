@@ -112,7 +112,7 @@ function ResumePDFDoc({ resume }) {
               {exp.bullets.map((b, i) => (
                 <View key={i} style={styles.bullet}>
                   <Text style={styles.bulletDot}>–</Text>
-                  <Text style={styles.bulletText}>{b}</Text>
+                  <Text style={styles.bulletText}>{b.text}</Text>
                 </View>
               ))}
             </View>
