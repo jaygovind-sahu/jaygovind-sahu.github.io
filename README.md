@@ -41,6 +41,22 @@ npm run build      # Production build → /dist
 npm run preview    # Preview production build locally
 ```
 
+## Performance
+
+Run Lighthouse locally against the dev server. Start `npm run dev` first, then in a separate terminal:
+
+```bash
+# Mobile (default emulation)
+npx lighthouse http://localhost:4321 --output=json --output-path=./docs/psi-mobile.json
+
+# Desktop
+npx lighthouse http://localhost:4321 --preset=desktop --output=json --output-path=./docs/psi-desktop.json
+```
+
+Reports are saved to `docs/`. See `docs/PERFORMANCE_AUDIT.md` for current findings.
+
+> For real-world field data, use [PageSpeed Insights](https://pagespeed.web.dev/) against the live URL — local runs use simulated throttling which inflates mobile times significantly.
+
 ## Deployment
 
 Hosted on Cloudflare Pages. Deployments trigger automatically on push to `main`.
