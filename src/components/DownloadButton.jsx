@@ -1,66 +1,78 @@
 import { useState } from "react";
 import { pdf, Document, Page, Text, View, Link, StyleSheet } from "@react-pdf/renderer";
 
+// ── Palette ───────────────────────────────────────────────────────────────────
+
+const MUTED = "#5c5c58";
+const ACCENT = "#c8622a";
+const INK = "#1a1a18";
+const RULE = "#e2e0d8";
+
 // ── PDF Styles ────────────────────────────────────────────────────────────────
 
 const styles = StyleSheet.create({
   page: {
     fontFamily: "Helvetica",
     fontSize: 9,
-    color: "#1a1a18",
+    color: INK,
     backgroundColor: "#ffffff",
-    paddingTop: 36,
+    paddingTop: 40,
     paddingBottom: 36,
     paddingLeft: 48,
     paddingRight: 48,
   },
-  // Header
-  header: { marginBottom: 16 },
-  name: { fontSize: 20, fontFamily: "Helvetica-Bold", marginBottom: 2 },
-  headline: { fontSize: 10, color: "#9a9a94", marginBottom: 6 },
-  contactRow: { flexDirection: "row", flexWrap: "wrap", gap: 8, marginBottom: 8 },
-  contactItem: { fontSize: 8, color: "#9a9a94", fontFamily: "Courier" },
-  contactLink: { fontSize: 8, color: "#c8622a", fontFamily: "Courier" },
-  summary: { fontSize: 9, lineHeight: 1.5, color: "#1a1a18" },
+  // Header — two-column: name+headline left, contacts right
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 14,
+  },
+  name: { fontSize: 22, fontFamily: "Helvetica-Bold", marginBottom: 3 },
+  headline: { fontSize: 10, color: MUTED },
+  contactBlock: { alignItems: "flex-end", gap: 3 },
+  contactItem: { fontSize: 8, color: MUTED, fontFamily: "Courier" },
+  contactLink: { fontSize: 8, color: ACCENT, fontFamily: "Courier" },
   // Section
   section: { marginBottom: 14 },
   sectionLabel: {
-    fontSize: 7,
+    fontSize: 9,
     fontFamily: "Courier",
-    color: "#c8622a",
+    color: ACCENT,
     textTransform: "uppercase",
-    letterSpacing: 1.5,
-    marginBottom: 6,
+    letterSpacing: 2,
+    marginBottom: 8,
     borderBottomWidth: 0.5,
-    borderBottomColor: "#e2e0d8",
+    borderBottomColor: RULE,
     paddingBottom: 3,
   },
+  // Summary
+  summary: { fontSize: 9, lineHeight: 1.55, color: INK },
   // Experience
   expHeader: { flexDirection: "row", justifyContent: "space-between", marginBottom: 2 },
   expCompany: { fontSize: 9, fontFamily: "Helvetica-Bold" },
-  expTitle: { fontSize: 9, fontFamily: "Helvetica", fontStyle: "italic", color: "#9a9a94" },
-  expDates: { fontSize: 8, color: "#9a9a94", fontFamily: "Courier" },
-  expLocation: { fontSize: 8, color: "#9a9a94", fontFamily: "Courier" },
+  expTitle: { fontSize: 9, fontFamily: "Helvetica-Oblique", color: MUTED },
+  expDates: { fontSize: 8, color: MUTED, fontFamily: "Courier" },
   bullet: { flexDirection: "row", marginBottom: 3, paddingLeft: 8 },
-  bulletDot: { width: 8, color: "#c8622a", fontSize: 9 },
-  bulletText: { flex: 1, fontSize: 8.5, lineHeight: 1.45, color: "#1a1a18" },
+  bulletDot: { width: 8, color: ACCENT, fontSize: 9 },
+  bulletText: { flex: 1, fontSize: 8.5, lineHeight: 1.5, color: INK },
   // Education
   eduRow: { flexDirection: "row", justifyContent: "space-between", marginBottom: 2 },
   eduInstitution: { fontSize: 9, fontFamily: "Helvetica-Bold" },
-  eduDegree: { fontSize: 8.5, color: "#9a9a94" },
-  eduDates: { fontSize: 8, color: "#9a9a94", fontFamily: "Courier" },
+  eduDegree: { fontSize: 8.5, color: MUTED },
+  eduDates: { fontSize: 8, color: MUTED, fontFamily: "Courier" },
   // Skills
   skillRow: { flexDirection: "row", marginBottom: 4 },
-  skillCategory: { width: 100, fontSize: 8, fontFamily: "Helvetica-Bold", color: "#1a1a18" },
-  skillItems: { flex: 1, fontSize: 8.5, color: "#1a1a18" },
+  skillCategory: { width: 100, fontSize: 8, fontFamily: "Helvetica-Bold", color: INK },
+  skillItems: { flex: 1, fontSize: 8.5, color: INK },
   // Projects
   projectName: { fontSize: 9, fontFamily: "Helvetica-Bold", marginBottom: 1 },
-  projectDesc: { fontSize: 8.5, lineHeight: 1.4, color: "#1a1a18", marginBottom: 2 },
-  projectTech: { fontSize: 7.5, color: "#9a9a94", fontFamily: "Courier" },
+  projectDesc: { fontSize: 8.5, lineHeight: 1.45, color: INK, marginBottom: 2 },
+  projectTech: { fontSize: 7.5, color: MUTED, fontFamily: "Courier" },
   // Certifications
   certRow: { flexDirection: "row", justifyContent: "space-between" },
   certName: { fontSize: 8.5 },
-  certMeta: { fontSize: 8, color: "#9a9a94", fontFamily: "Courier" },
+  certMeta: { fontSize: 8, color: MUTED, fontFamily: "Courier" },
 });
 
 // ── PDF Document ──────────────────────────────────────────────────────────────
@@ -79,19 +91,21 @@ function ResumePDFDoc({ resume }) {
     <Document title={`${meta.name} — Resume`} author={meta.name}>
       <Page size="A4" style={styles.page}>
 
-        {/* Header */}
+        {/* Header — two-column */}
         <View style={styles.header}>
-          <Text style={styles.name}>{meta.name}</Text>
-          <Text style={styles.headline}>{meta.headline}</Text>
-          <View style={styles.contactRow}>
-            <Text style={styles.contactItem}>{meta.location}</Text>
-            <Text style={styles.contactItem}>•</Text>
-            <Text style={styles.contactItem}>{meta.phone}</Text>
-            <Text style={styles.contactItem}>•</Text>
+          <View>
+            <Text style={styles.name}>{meta.name}</Text>
+            <Text style={styles.headline}>{meta.headline}</Text>
+          </View>
+          <View style={styles.contactBlock}>
             <Link src={`mailto:${meta.email}`} style={styles.contactLink}>{meta.email}</Link>
-            <Text style={styles.contactItem}>•</Text>
             <Link src={meta.linkedin} style={styles.contactLink}>linkedin.com/in/jaygovind-sahu</Link>
           </View>
+        </View>
+
+        {/* Summary */}
+        <View style={styles.section}>
+          <Text style={styles.sectionLabel}>Summary</Text>
           <Text style={styles.summary}>{meta.summary}</Text>
         </View>
 
@@ -101,20 +115,22 @@ function ResumePDFDoc({ resume }) {
           {experience.map((exp) => (
             <View key={exp.id} style={{ marginBottom: 10 }}>
               <View style={styles.expHeader}>
-                <View>
+                <Text>
                   <Text style={styles.expCompany}>{exp.company}</Text>
-                  <Text style={styles.expTitle}>{exp.title} — {exp.location}</Text>
-                </View>
+                  <Text style={styles.expTitle}> — {exp.title}</Text>
+                </Text>
                 <Text style={styles.expDates}>
                   {formatDate(exp.start)} – {exp.current ? "Present" : formatDate(exp.end)}
                 </Text>
               </View>
-              {exp.bullets.map((b, i) => (
-                <View key={i} style={styles.bullet}>
-                  <Text style={styles.bulletDot}>–</Text>
-                  <Text style={styles.bulletText}>{b.text}</Text>
-                </View>
-              ))}
+              <View style={{ marginTop: 5 }}>
+                {exp.bullets.map((b, i) => (
+                  <View key={i} style={styles.bullet}>
+                    <Text style={styles.bulletDot}>–</Text>
+                    <Text style={styles.bulletText}>{b.text}</Text>
+                  </View>
+                ))}
+              </View>
             </View>
           ))}
         </View>
@@ -187,6 +203,7 @@ function ResumePDFDoc({ resume }) {
 
 export default function DownloadButton({ resume }) {
   const [loading, setLoading] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   async function handleDownload() {
     setLoading(true);
@@ -207,6 +224,8 @@ export default function DownloadButton({ resume }) {
     <button
       onClick={handleDownload}
       disabled={loading}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{
         display: "inline-flex",
         alignItems: "center",
@@ -214,13 +233,13 @@ export default function DownloadButton({ resume }) {
         fontFamily: "'DM Mono', monospace",
         fontSize: "11px",
         letterSpacing: "0.05em",
-        color: loading ? "#9a9a94" : "#c8622a",
-        background: "transparent",
-        border: "1px solid currentColor",
+        color: loading ? "#9a9a94" : hovered ? "#f7f6f2" : "#c8622a",
+        background: loading ? "transparent" : hovered ? "#c8622a" : "transparent",
+        border: `1px solid ${loading ? "#9a9a94" : "#c8622a"}`,
         borderRadius: "2px",
         padding: "6px 14px",
         cursor: loading ? "default" : "pointer",
-        transition: "opacity 0.2s",
+        transition: "background 0.2s, color 0.2s",
       }}
     >
       {loading ? "Generating…" : "↓ Download PDF"}

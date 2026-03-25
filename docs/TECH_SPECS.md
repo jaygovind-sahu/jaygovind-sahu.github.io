@@ -805,49 +805,48 @@ In local mode, TinaCMS writes directly to your local `src/data/resume.json` — 
 
 ### Phase 1 — Scaffold & Deploy (Day 1)
 
-- [ ] Initialize Astro project with React and Tailwind integrations
-- [ ] Create `src/data/resume.json` with your real data
-- [ ] Configure `tina/config.ts` schema
-- [ ] Push to GitHub
-- [ ] Connect Cloudflare Pages → build → verify live at `*.pages.dev`
-- [ ] Update Squarespace DNS CNAME records
-- [ ] Verify `jaygovindsahu.com` resolves correctly
+- [x] Initialize Astro project with React and Tailwind integrations
+- [x] Create `src/data/resume.json` with your real data
+- [x] Configure `tina/config.ts` schema
+- [x] Push to GitHub
+- [x] Connect Cloudflare Pages → build → verify live at `*.pages.dev`
+- [x] Update Squarespace DNS CNAME records
+- [x] Verify `jaygovindsahu.com` resolves correctly
 
 ### Phase 2 — Public Resume Page (Week 1)
 
-- [ ] Build `Base.astro` layout with fonts, CSS vars, OG tags
-- [ ] Build `index.astro` with all sections
-- [ ] Build `SectionLabel.astro` and `Divider.astro`
-- [ ] Verify all sections render correctly from JSON
-- [ ] Test on mobile (responsive layout)
-- [ ] Verify Google Fonts load correctly
-- [ ] Test fade-up animation
+- [x] Build `Base.astro` layout with fonts, CSS vars, OG tags
+- [x] Build `index.astro` with all sections
+- [x] Build `SectionLabel.astro` and `Divider.astro`
+- [x] Verify all sections render correctly from JSON
+- [x] Test on mobile (responsive layout)
+- [x] Verify Google Fonts load correctly
+- [x] Test fade-up animation
 
 ### Phase 3 — PDF Download (Week 1–2)
 
-- [ ] Build `ResumePDFDoc` component in `DownloadButton.jsx`
-- [ ] Style PDF: header, experience, projects, skills, education, certifications
-- [ ] Test PDF output — verify text is selectable (not a screenshot)
-- [ ] Verify filename downloads as `Jay_Govind_Sahu_Resume.pdf`
-- [ ] Test loading state on button
+- [x] Build `ResumePDFDoc` component in `DownloadButton.jsx`
+- [x] Style PDF: header, experience, projects, skills, education, certifications
+- [x] Test PDF output — verify text is selectable (not a screenshot)
+- [x] Verify filename downloads as `Jaygovind_Sahu_Resume.pdf`
+- [x] Test loading state on button
 
 ### Phase 4 — TinaCMS Editor (Week 2)
 
-- [ ] Set up Tina Cloud account at `app.tina.io`
-- [ ] Connect GitHub repo to Tina Cloud project
-- [ ] Add env vars to Cloudflare Pages dashboard
-- [ ] Verify `/admin` is accessible and authenticated
-- [ ] Test adding a new job entry end-to-end (edit → save → rebuild → live)
-- [ ] Test editing skill items
-- [ ] Test reordering projects
+- [x] Set up Tina Cloud account at `app.tina.io`
+- [x] Connect GitHub repo to Tina Cloud project
+- [x] Add env vars to Cloudflare Pages dashboard
+- [x] Verify `/admin` is accessible and authenticated
+- [x] Test adding a new job entry end-to-end (edit → save → rebuild → live)
+- [x] Test editing skill items
+- [x] Test reordering projects
 
 ### Phase 5 — Polish (Week 2–3)
 
 - [ ] Run Lighthouse audit — target 95+ Performance, 100 Accessibility
 - [ ] Verify OG image / meta tags (use [opengraph.xyz](https://opengraph.xyz) to preview)
-- [ ] Add Cloudflare Web Analytics (free, privacy-friendly, no cookie banner needed)
 - [ ] Accessibility audit: check heading hierarchy, alt text, color contrast
-- [ ] Cross-browser test: Chrome, Firefox, Safari
+- [x] Cross-browser test: Chrome, Firefox, Safari
 
 ### Phase 6 — Contact Form (Future)
 
