@@ -44,8 +44,8 @@ Custom CSS variables (defined in `src/layouts/Base.astro`):
 |------------|-----------|-----------------------------|
 | `--ink`    | `#1a1a18` | Primary text                |
 | `--paper`  | `#f7f6f2` | Background (warm off-white) |
-| `--muted`  | `#545450` | Secondary text, dates       |
-| `--accent` | `#8f3e10` | Section labels (terracotta) |
+| `--muted`  | `#3d3d39` | Secondary text, dates       |
+| `--accent` | `#7a3309` | Section labels (terracotta) |
 | `--rule`   | `#e2e0d8` | Dividers and borders        |
 
 Custom Tailwind font classes: `font-display` (Cormorant Garamond), `font-body` (DM Sans), `font-mono` (DM Mono).
