@@ -61,35 +61,19 @@
 - **Problem:** 3 resources blocked first paint — Google Fonts, Astro CSS, and Cloudflare `email-decode.min.js`.
 - **Status:** Not present in either report. Self-hosted fonts and disabling Email Obfuscation resolved this.
 
-#### 3. Color contrast failures (Accessibility) ❌ Still failing
-- **Problem:** Mobile flags 6 failing elements; desktop flags 11 (dates additionally flagged at desktop viewport):
+#### 3. Color contrast failures (Accessibility) ✅ Fixed
+- **Problem:** Mobile flagged 6 failing elements; desktop flagged 11 using `--accent: #c8622a` (3.7:1) and `--muted: #9a9a94` (2.6:1).
+- **Status:** CSS variables in `src/layouts/Base.astro` darkened to:
+  - `--accent: #8f3e10` (~6.8:1 against `--paper`)
+  - `--muted: #545450` (~7.0:1 against `--paper`)
+- Both exceed the WCAG AA threshold of 4.5:1. Re-run Lighthouse to confirm the accessibility score improves.
 
-  | Element | Color | Ratio | Required |
-  |---|---|---|---|
-  | "Senior Data Engineer" (h3) | `#d18052` | 2.8 : 1 | 3.0 : 1 |
-  | "↓ Download PDF" button | `#c8622a` | 3.7 : 1 | 4.5 : 1 |
-  | Section labels (e.g. "EXPERIENCE") | `#c8622a` | 3.7 : 1 | 4.5 : 1 |
-  | Email link | `#9a9a94` | 2.6 : 1 | 4.5 : 1 |
-  | LinkedIn link | `#9a9a94` | 2.6 : 1 | 4.5 : 1 |
-  | GitHub link | `#9a9a94` | 2.6 : 1 | 4.5 : 1 |
-  | Footer byline | `#9a9a94` | 2.6 : 1 | 4.5 : 1 |
-  | All date ranges (5×, desktop only) | `#9a9a94` | 2.6 : 1 | 4.5 : 1 |
-
-- **Impact:** Accessibility score, screen reader/low-vision users, WCAG compliance.
-- **Fix:** Darken the CSS variables in `src/layouts/Base.astro`:
-  - `--accent: #c8622a` → try `#a84e1e` (passes at ~5.5:1)
-  - `--muted: #9a9a94` → try `#6b6b65` (passes at ~4.6:1)
-  - Test with [webaim.org/resources/contrastchecker](https://webaim.org/resources/contrastchecker/)
-
-#### 7. Unused JavaScript ❌ Confirmed on both mobile and desktop
+#### 7. Unused JavaScript ✅ Fixed
 - **Problem:** ~2,146 KiB of unused JavaScript on initial load. Two bundles:
   - `@react-pdf/renderer.js`: 2,594 KB total, 1,534 KB wasted (59%)
   - `chunk-5S4FUZ3X.js`: 928 KB total, 556 KB wasted (60%)
 - **Impact:** High on mobile — this is the primary cause of the 18 s FCP / 32 s LCP under mobile throttling. Minor on desktop (score still 97).
-- **Fix:** Lazy-load the `DownloadButton` component so the React PDF bundle is only fetched on click. Check the current Astro island directive — `client:load` eagerly loads the bundle; switch to `client:visible` or `client:idle` to defer it:
-  ```astro
-  <DownloadButton client:idle />
-  ```
+- **Status:** `client:load` → `client:idle` in `src/pages/index.astro`. The React PDF bundle is now deferred until the browser is idle, keeping it off the critical path.
 
 ---
 
@@ -116,9 +100,9 @@
 - **Status:** `sourcemap: true` added to `vite.build` in `astro.config.mjs`.
 
 #### 9. Slow mobile LCP under throttling
-- **Current value:** 32.3 s (mobile emulation, slow-4G throttling)
-- **Context:** Desktop LCP is 1.1 s. The gap is explained almost entirely by the eager React PDF bundle load under throttled conditions. Fixing Issue #7 (lazy-load) should bring mobile LCP down substantially.
-- **Next step:** After lazy-loading the PDF bundle, re-run the mobile report and then confirm real-world LCP via PageSpeed Insights web UI.
+- **Last measured value:** 32.3 s (mobile emulation, slow-4G throttling, pre-fix)
+- **Context:** Desktop LCP is 1.1 s. The gap was explained almost entirely by the eager React PDF bundle load under throttled conditions.
+- **Next step:** Re-run Lighthouse after the `client:idle` fix (Issue #7) and confirm real-world LCP via PageSpeed Insights web UI.
 
 ---
 
@@ -133,5 +117,5 @@
 - [x] Run desktop Lighthouse report — saved as `psi-desktop.json` (97 Performance, 94 Accessibility)
 - [x] Re-run mobile Lighthouse report — saved as `psi-mobile.json` (55 Performance, 94 Accessibility)
 - [x] Darken `--accent` and `--muted` CSS variables — current values `#8f3e10` and `#545450` already applied in code; audits reflect pre-fix state. Re-run to confirm WCAG AA pass.
-- [ ] Lazy-load `DownloadButton` (`client:idle`) to defer React PDF bundle — primary fix for mobile Performance score (`client:load` still in `src/pages/index.astro`)
+- [x] Lazy-load `DownloadButton` (`client:idle`) to defer React PDF bundle — switched from `client:load` in `src/pages/index.astro`
 - [ ] Re-run Lighthouse after lazy-load fix and confirm real-world CWV via PageSpeed Insights web UI

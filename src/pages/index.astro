@@ -31,7 +31,7 @@ const { meta, experience, education, skills, projects, certifications } = resume
 
       <!-- Links row -->
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
-        <DownloadButton client:load resume={resume} />
+        <DownloadButton client:idle resume={resume} />
         <a href={`mailto:${meta.email}`} class="link-underline relative font-mono text-xs text-muted hover:text-accent transition-colors">
           {meta.email}
         </a>
