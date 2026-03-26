@@ -16,6 +16,7 @@ See `README.md` for setup, dev commands, and deployment instructions.
 - `tinacms` is a local package — always use `npx tinacms`, never bare `tinacms`
 - No server — PDF generation is entirely client-side via `@react-pdf/renderer`
 - Static output only — Astro is configured for static site generation
+- `astro.config.mjs` has `site: "https://jaygovindsahu.com"` — required for sitemap generation, do not remove
 
 ---
 

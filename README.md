@@ -13,6 +13,7 @@ Personal resume website for Jaygovind Sahu.
 - [React](https://react.dev) — interactive islands (PDF download button)
 - [@react-pdf/renderer](https://react-pdf.org) — client-side PDF generation
 - [Cloudflare Pages](https://pages.cloudflare.com) — hosting and CDN
+- [@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/) — sitemap generation
 
 ## Getting Started
 
@@ -47,13 +48,11 @@ Run Lighthouse locally against the dev server. Start `npm run dev` first, then i
 
 ```bash
 # Mobile (default emulation)
-npx lighthouse http://localhost:4321 --output=json --output-path=./docs/psi-mobile.json
+npx lighthouse http://localhost:4321
 
 # Desktop
-npx lighthouse http://localhost:4321 --preset=desktop --output=json --output-path=./docs/psi-desktop.json
+npx lighthouse http://localhost:4321 --preset=desktop
 ```
-
-Reports are saved to `docs/`. See `docs/PERFORMANCE_AUDIT.md` for current findings.
 
 > For real-world field data, use [PageSpeed Insights](https://pagespeed.web.dev/) against the live URL — local runs use simulated throttling which inflates mobile times significantly.
 
@@ -104,6 +103,4 @@ src/
     global.css            # Minimal global CSS overrides
 tina/
   config.ts               # TinaCMS schema definition
-docs/
-  TECH_SPECS.md           # Full technical specification
 ```
