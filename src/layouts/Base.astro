@@ -30,6 +30,9 @@ const {
     <meta name="description" content={description} />
     <meta name="author" content="Jaygovind Sahu" />
 
+    <!-- Canonical -->
+    <link rel="canonical" href="https://jaygovindsahu.com" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -50,6 +53,22 @@ const {
     <meta name="twitter:image" content="https://jaygovindsahu.com/og-image.svg" />
 
     <title>{title}</title>
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jaygovind Sahu",
+        "jobTitle": "Senior Data Engineer",
+        "url": "https://jaygovindsahu.com",
+        "email": "mr.jaygovind.sahu@gmail.com",
+        "sameAs": [
+          "https://linkedin.com/in/jaygovind-sahu",
+          "https://github.com/jaygovind-sahu"
+        ]
+      }
+    </script>
 
 <style>
       :root {
@@ -100,6 +119,32 @@ const {
         transform: translateY(0);
       }
 
+      /* Skip-to-content link */
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 1rem;
+        background: var(--accent);
+        color: var(--paper);
+        padding: 0.5rem 1rem;
+        font-family: "DM Mono", monospace;
+        font-size: 0.75rem;
+        z-index: 9999;
+        transition: top 0.1s;
+      }
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      /* Print styles */
+      @media print {
+        #grain,
+        .no-print { display: none !important; }
+        html, body { background: #fff; color: #000; }
+        .fade-up { opacity: 1 !important; transform: none !important; }
+        main { padding: 0 !important; }
+      }
+
       /* Section label rule animation */
       :global(.rule-line) {
         transform-origin: left;
@@ -112,8 +157,13 @@ const {
     </style>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <div id="grain" aria-hidden="true"></div>
     <slot />
+
+    <!-- Cloudflare Web Analytics -->
+    <!-- To enable: go to Cloudflare dashboard → Analytics → Web Analytics → add site → paste your token below -->
+    <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN_HERE"}'></script> -->
 
     <script>
       // Scroll-triggered fade-up via IntersectionObserver
@@ -127,6 +177,17 @@ const {
       }, { threshold: 0.08 });
 
       document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+      // Scroll-to-top button
+      const backToTop = document.getElementById('back-to-top');
+      if (backToTop) {
+        window.addEventListener('scroll', () => {
+          const visible = window.scrollY > 400;
+          backToTop.style.opacity = visible ? '1' : '0';
+          backToTop.style.pointerEvents = visible ? 'auto' : 'none';
+        }, { passive: true });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
     </script>
   </body>
 </html>

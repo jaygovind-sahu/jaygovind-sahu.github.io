@@ -15,7 +15,7 @@ const { meta, experience, education, skills, projects, certifications } = resume
 ---
 
 <Base title={`${meta.name} — ${meta.headline}`} description={meta.summary}>
-  <main class="max-w-4xl mx-auto px-6 py-16 md:py-24">
+  <main id="main-content" class="max-w-4xl mx-auto px-6 py-16 md:py-24">
 
     <!-- ── HEADER ──────────────────────────────────────────── -->
     <header class="mb-16">
@@ -34,15 +34,15 @@ const { meta, experience, education, skills, projects, certifications } = resume
         <a href={`mailto:${meta.email}`} class="link-underline relative font-mono text-xs text-muted hover:text-accent transition-colors">
           {meta.email}
         </a>
-        <a href={meta.linkedin} target="_blank" rel="noopener" class="link-underline relative font-mono text-xs text-muted hover:text-accent transition-colors">
+        <a href={meta.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn profile" class="link-underline relative font-mono text-xs text-muted hover:text-accent transition-colors">
           LinkedIn ↗
         </a>
-        <DownloadButton client:idle resume={resume} />
+        <span class="no-print"><DownloadButton client:idle resume={resume} /></span>
       </div>
     </header>
 
     <!-- ── EXPERIENCE ──────────────────────────────────────── -->
-    <section class="fade-up mt-12">
+    <section id="experience" class="fade-up mt-12">
       <SectionLabel label="Experience" />
       <div class="space-y-10">
         {experience.map((exp) => (
@@ -70,7 +70,7 @@ const { meta, experience, education, skills, projects, certifications } = resume
     </section>
 
     <!-- ── PROJECTS ────────────────────────────────────────── -->
-    <section class="fade-up mt-12">
+    <section id="projects" class="fade-up mt-12">
       <SectionLabel label="Side Projects" />
       <div class="space-y-8">
         {projects.map((proj) => (
@@ -102,7 +102,7 @@ const { meta, experience, education, skills, projects, certifications } = resume
     </section>
 
     <!-- ── SKILLS ──────────────────────────────────────────── -->
-    <section class="fade-up mt-12">
+    <section id="skills" class="fade-up mt-12">
       <SectionLabel label="Skills" />
       <dl class="space-y-3">
         {skills.map((group) => (
@@ -117,7 +117,7 @@ const { meta, experience, education, skills, projects, certifications } = resume
     </section>
 
     <!-- ── EDUCATION ───────────────────────────────────────── -->
-    <section class="fade-up mt-12">
+    <section id="education" class="fade-up mt-12">
       <SectionLabel label="Education" />
       <div class="space-y-6">
         {education.map((edu) => (
@@ -129,14 +129,14 @@ const { meta, experience, education, skills, projects, certifications } = resume
                 {edu.notes ? ` — ${edu.notes}` : ""}
               </p>
             </div>
-            <span class="font-mono text-[11px] text-muted whitespace-nowrap pt-1">{edu.end}</span>
+            <span class="font-mono text-[11px] text-muted whitespace-nowrap pt-1">{edu.start} – {edu.end}</span>
           </div>
         ))}
       </div>
     </section>
 
     <!-- ── CERTIFICATIONS ──────────────────────────────────── -->
-    <section class="fade-up mt-12">
+    <section id="certifications" class="fade-up mt-12">
       <SectionLabel label="Certifications" />
       <div class="space-y-4">
         {certifications.map((cert) => (
@@ -148,7 +148,7 @@ const { meta, experience, education, skills, projects, certifications } = resume
             <div class="text-right shrink-0">
               <span class="font-mono text-[11px] text-muted block">{formatDate(cert.date)}</span>
               {cert.url && (
-                <a href={cert.url} target="_blank" rel="noopener" class="font-mono text-[10px] text-accent hover:underline">
+                <a href={cert.url} target="_blank" rel="noopener" aria-label={`Verify ${cert.name} on ${cert.issuer}`} class="font-mono text-[10px] text-accent hover:underline">
                   Verify ↗
                 </a>
               )}
@@ -157,6 +157,15 @@ const { meta, experience, education, skills, projects, certifications } = resume
         ))}
       </div>
     </section>
+
+    <!-- ── SCROLL TO TOP ───────────────────────────────────── -->
+    <button
+      id="back-to-top"
+      aria-label="Back to top"
+      class="no-print fixed bottom-8 right-8 w-9 h-9 flex items-center justify-center border border-rule rounded bg-paper text-muted hover:text-accent hover:border-accent transition-all opacity-0 pointer-events-none"
+    >
+      ↑
+    </button>
 
     <!-- ── FOOTER ──────────────────────────────────────────── -->
     <footer class="mt-16 pt-8 border-t border-rule">

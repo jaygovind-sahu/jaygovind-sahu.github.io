@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://jaygovindsahu.com/sitemap-index.xml
