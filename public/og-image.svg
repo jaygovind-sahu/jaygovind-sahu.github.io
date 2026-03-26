@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#f7f6f2"/>
+
+  <!-- Left accent bar -->
+  <rect x="80" y="80" width="3" height="470" fill="#7a3309" opacity="0.35"/>
+
+  <!-- Name -->
+  <text
+    x="116" y="260"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="88"
+    font-weight="400"
+    fill="#1a1a18"
+    letter-spacing="-1"
+  >Jaygovind Sahu</text>
+
+  <!-- Divider rule -->
+  <rect x="116" y="290" width="480" height="1.5" fill="#7a3309" opacity="0.5"/>
+
+  <!-- Headline -->
+  <text
+    x="116" y="345"
+    font-family="'Helvetica Neue', Arial, sans-serif"
+    font-size="28"
+    font-weight="300"
+    fill="#3d3d39"
+    letter-spacing="3"
+  >SENIOR DATA ENGINEER</text>
+
+  <!-- URL -->
+  <text
+    x="116" y="510"
+    font-family="'Courier New', Courier, monospace"
+    font-size="20"
+    fill="#7a3309"
+    opacity="0.8"
+  >jaygovindsahu.com</text>
+</svg>
